@@ -9,8 +9,15 @@ tener una método llamda area que como su nombre lo dice calcule el área de la 
 */
 
 /*-----------------------------Solución------------------------------*/
-
-
+class figure {
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+    area(){
+        return this.width * this.height
+    }
+}
 
 /*------------------------------------------------------------------*/
 
@@ -29,8 +36,22 @@ y porder calcular el area de estos usando métodos.
 
 /*-----------------------------Solución------------------------------*/
 //rectangulo
-
+class rectangle extends figure {
+    perimeter(){
+        return 2*(this.width + this.height);
+    }
+  }
+  var rctng = new rectangle(2,7);
+  console.log("El área del rectangulo es: " + rctng.area());
+  console.log("El perímetro del rectangulo es: " + rctng.perimeter());
 //triangulo
+class triangle extends figure {
+    area(){
+        return (this.width * this.height)/2
+    }
+}
+var trngl = new triangle(4,8);
+console.log("El área del triángulo es: " + trngl.area());
 
 
 /*------------------------------------------------------------------*/
@@ -53,7 +74,12 @@ en un escenario del mundo real.
 
 /*-----------------------------Solución------------------------------*/
 
-
+class trigonometry {
+    static theorem(figure) {
+     return Math.sqrt(Math.pow(figure.width, 2) + Math.pow(figure.height, 2)).toFixed(4);
+    }
+  }
+  console.log(trigonometry.theorem(trngl));
 
 /*------------------------------------------------------------------*/
 
@@ -73,7 +99,26 @@ clase hija, en otras palabras deben de ser funcionando como hasta ahora.
 */
 
 /*-----------------------------Solución------------------------------*/
-
+class enhancedNumber extends Number{
+    isNotPair(n){
+        if(n % 2 === 0){
+            return false;
+        }
+        return true;
+    }
+    factorial(n){
+        if(n < 0){
+            return -1
+        }else if (n === 0){
+            return 1;
+        }else{
+            return(n * this.factorial(n-1));
+        }
+    }
+  }
+  var n = new enhancedNumber;
+  console.log("Este número es impar? " + n.isNotPair(6));
+  console.log("El factorial es: " + n.factorial(5))
 
 
 /*------------------------------------------------------------------*/
@@ -87,6 +132,7 @@ hacer lo siguiente:
 1.- Definir al menos dos entidades (o más) que necesitaran para su proyecto.
 2.- Definir las propiedades y métodos únic@s de cada entidad.
 3.- Definir las propiedades y métodos en común entre las entidades.  
+Todas mis clases tienen un id propio.
 4.- En caso de que las entidades puedan o deban interactuar entre ellas,
 hacer una de las siguientes opciones:
  a) Definir metodos dentro de cada entidad para interactuar con la otra entidad.
@@ -96,7 +142,60 @@ hacer una de las siguientes opciones:
 Una vez definidos todo esto, favor de generar el código de las funciones.
 
 /*-----------------------------Solución------------------------------*/
+class user {
+    constructor(id, name, email, password){
+        this.id_user = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.comment = [];
+        this.comic = [];
+    }
+}
+
+var user1 = new Constructor();
+
+class comic {
+    constructor(id, title, description, image_url, created_by){
+        this.id_comic = id;
+        this.title =  title;
+        this.description =  description;
+        this.image_url = image_url;
+        this.created_by = created_by;
+        this.likes = 0;
+        this.created_at = new Date();
+    }
+    add_like(){
+        return this.likes = this.likes + 1;
+    }
+    delete_like(){
+        if(this.likes === 0){
+            return;
+        }
+        return this.likes = this.likes - 1;
+    }
+}
+class comment{
+    constructor(id, id_commic, username, comment){
+        this.id_comment = id;
+        this.id_comic = id_commic;
+        this.username =  username;
+        this.comment = comment;
+    }
+}
+
+class interaction{
+    create_commic(obj){
 
 
+    }
+    create_comment(obj){
+
+    }
+    delete_comment(obj){
+
+    }
+}
 
 /*------------------------------------------------------------------*/
+
