@@ -9,9 +9,16 @@ tener una método llamda area que como su nombre lo dice calcule el área de la 
 */
 
 /*-----------------------------Solución------------------------------*/
+class figure{
+ constructor(height,width){
+     this.height = height;
+     this.width = width;
+ }
 
-
-
+ area(){
+     return this.height * this.width;
+ }
+}
 /*------------------------------------------------------------------*/
 
 
@@ -29,10 +36,24 @@ y porder calcular el area de estos usando métodos.
 
 /*-----------------------------Solución------------------------------*/
 //rectangulo
-
+class rectangle extends figure{
+    perimeter(){
+        return (this.width * 2) + (this.height *2);
+    }
+}
 //triangulo
+class triangle extends figure{
+    areatriangle(){
+        return (this.area()) / 2;
+    }
+}
 
+var rec = new rectangle(4,2);
+console.log("area:",rec.area());
+console.log("perimeter:",rec.perimeter());
 
+var trian = new triangle(5,3);
+console.log("area:",trian.areatriangle());
 /*------------------------------------------------------------------*/
 
 /*-----------------------------Static--------------------------------*/
@@ -52,9 +73,15 @@ en un escenario del mundo real.
 */
 
 /*-----------------------------Solución------------------------------*/
+class trigonometry{
+    static Hypotenuse(a,b){
+        return Math.sqrt(Math.pow(a,2)+Math.pow(b,2)).toFixed(2);
+    }
+    static internAngle = 180;
+}
 
-
-
+console.log(trigonometry.Hypotenuse(trian.width,trian.height));
+console.log(trigonometry.internAngle);
 /*------------------------------------------------------------------*/
 
 
@@ -73,9 +100,25 @@ clase hija, en otras palabras deben de ser funcionando como hasta ahora.
 */
 
 /*-----------------------------Solución------------------------------*/
+class enhancedString extends String{
+    noSpace(str){
+        var arr = str.split(" ");
+        var res="";
+        arr.forEach(function(item){
+            res += item;
+        })
+        return res;
+    }
 
+    likeOrNot(str){
+        var b = str.toLowerCase().includes("sushi");
+        return b ? "Si le gusta el sushi" : "no le gusta el sushi";
+    }
 
+}
 
+var str = new enhancedString();
+console.log(str.noSpace("A n d r e a"),str.likeOrNot("Sushi"));
 /*------------------------------------------------------------------*/
 
 /*-----------------------------Extra(Más no opcional)---------------*/
@@ -96,7 +139,40 @@ hacer una de las siguientes opciones:
 Una vez definidos todo esto, favor de generar el código de las funciones.
 
 /*-----------------------------Solución------------------------------*/
+class Hotel{
+    constructor(id,name,city,state,rooms){
+        this.id = id;
+        this.name = name;
+        this.city = city;
+        this.state = state;
+        this.rooms = rooms;
+    }
+   
+}
 
+class User{
+    constructor(id,name,email,pass){
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.pass = pass;
+        this.reservation = [];
+    }
 
+    reservar(objH){
+        this.reservation.push(objH);
+    }
+
+}
+
+var objH = new Hotel(1,"Casa Blanca","Guadalajara","Jalisco",[{id:1,tipo:"sencilla",vacancy: 1}])
+console.log(objH);
+var x = objH.rooms[0];
+var objU = new User(1,"Andrea","andrea@email.com","pass123");
+console.log(objU);
+objU.reservar(x);
+console.log(objU);
+
+//
 
 /*------------------------------------------------------------------*/
