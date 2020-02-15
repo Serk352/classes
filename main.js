@@ -101,10 +101,7 @@ clase hija, en otras palabras deben de ser funcionando como hasta ahora.
 /*-----------------------------Solución------------------------------*/
 class enhancedNumber extends Number {
     isNotPair(n) {
-        if (n % 2 === 0) {
-            return false;
-        }
-        return true;
+        return n % 2 === 0 ? false : true;
     }
     factorial(n) {
         if (n < 0) {
@@ -116,7 +113,7 @@ class enhancedNumber extends Number {
         }
     }
 }
-var n = new enhancedNumber;
+var n = new enhancedNumber();
 console.log("Este número es impar? " + n.isNotPair(6));
 console.log("El factorial es: " + n.factorial(5))
 
@@ -163,7 +160,7 @@ class user {
     }
 }
 
-var user1 = new Constructor();
+var user1 = new user();
 
 class comic {
     constructor(id, title, description, image_url, created_by) {
@@ -179,10 +176,7 @@ class comic {
         return this.likes = this.likes + 1;
     }
     delete_like() {
-        if (this.likes === 0) {
-            return;
-        }
-        return this.likes = this.likes - 1;
+        return this.likes === 0 ? "Error" : this.likes = this.likes--;
     }
 }
 class comment {
