@@ -10,11 +10,11 @@ tener una método llamda area que como su nombre lo dice calcule el área de la 
 
 /*-----------------------------Solución------------------------------*/
 class figure {
-    constructor(width, height){
+    constructor(width, height) {
         this.width = width;
         this.height = height;
     }
-    area(){
+    area() {
         return this.width * this.height
     }
 }
@@ -37,20 +37,20 @@ y porder calcular el area de estos usando métodos.
 /*-----------------------------Solución------------------------------*/
 //rectangulo
 class rectangle extends figure {
-    perimeter(){
-        return 2*(this.width + this.height);
-    }
-  }
-  var rctng = new rectangle(2,7);
-  console.log("El área del rectangulo es: " + rctng.area());
-  console.log("El perímetro del rectangulo es: " + rctng.perimeter());
-//triangulo
-class triangle extends figure {
-    area(){
-        return (this.width * this.height)/2
+    perimeter() {
+        return 2 * (this.width + this.height);
     }
 }
-var trngl = new triangle(4,8);
+var rctng = new rectangle(2, 7);
+console.log("El área del rectangulo es: " + rctng.area());
+console.log("El perímetro del rectangulo es: " + rctng.perimeter());
+//triangulo
+class triangle extends figure {
+    area() {
+        return (this.width * this.height) / 2
+    }
+}
+var trngl = new triangle(4, 8);
 console.log("El área del triángulo es: " + trngl.area());
 
 
@@ -76,10 +76,10 @@ en un escenario del mundo real.
 
 class trigonometry {
     static theorem(figure) {
-     return Math.sqrt(Math.pow(figure.width, 2) + Math.pow(figure.height, 2)).toFixed(4);
+        return Math.sqrt(Math.pow(figure.width, 2) + Math.pow(figure.height, 2)).toFixed(4);
     }
-  }
-  console.log(trigonometry.theorem(trngl));
+}
+console.log(trigonometry.theorem(trngl));
 
 /*------------------------------------------------------------------*/
 
@@ -99,26 +99,26 @@ clase hija, en otras palabras deben de ser funcionando como hasta ahora.
 */
 
 /*-----------------------------Solución------------------------------*/
-class enhancedNumber extends Number{
-    isNotPair(n){
-        if(n % 2 === 0){
+class enhancedNumber extends Number {
+    isNotPair(n) {
+        if (n % 2 === 0) {
             return false;
         }
         return true;
     }
-    factorial(n){
-        if(n < 0){
+    factorial(n) {
+        if (n < 0) {
             return -1
-        }else if (n === 0){
+        } else if (n === 0) {
             return 1;
-        }else{
-            return(n * this.factorial(n-1));
+        } else {
+            return (n * this.factorial(n - 1));
         }
     }
-  }
-  var n = new enhancedNumber;
-  console.log("Este número es impar? " + n.isNotPair(6));
-  console.log("El factorial es: " + n.factorial(5))
+}
+var n = new enhancedNumber;
+console.log("Este número es impar? " + n.isNotPair(6));
+console.log("El factorial es: " + n.factorial(5))
 
 
 /*------------------------------------------------------------------*/
@@ -143,7 +143,7 @@ Una vez definidos todo esto, favor de generar el código de las funciones.
 
 /*-----------------------------Solución------------------------------*/
 class user {
-    constructor(id, name, email, password){
+    constructor(id, name, email, password) {
         this.id_user = id;
         this.name = name;
         this.email = email;
@@ -151,51 +151,47 @@ class user {
         this.comment = [];
         this.comic = [];
     }
+    add_comment(obj) {
+        let identify = user.comment;
+        let array = [(identify.length + 1), obj.comment]
+        user.comment.push(array);
+    }
+    add_comic(obj) {
+        let identify = user.comic;
+        let array = [(identify.length + 1), obj.title]
+        user.comic.push(array);
+    }
 }
 
 var user1 = new Constructor();
 
 class comic {
-    constructor(id, title, description, image_url, created_by){
+    constructor(id, title, description, image_url, created_by) {
         this.id_comic = id;
-        this.title =  title;
-        this.description =  description;
+        this.title = title;
+        this.description = description;
         this.image_url = image_url;
         this.created_by = created_by;
         this.likes = 0;
         this.created_at = new Date();
     }
-    add_like(){
+    add_like() {
         return this.likes = this.likes + 1;
     }
-    delete_like(){
-        if(this.likes === 0){
+    delete_like() {
+        if (this.likes === 0) {
             return;
         }
         return this.likes = this.likes - 1;
     }
 }
-class comment{
-    constructor(id, id_commic, username, comment){
+class comment {
+    constructor(id, id_commic, username, comment) {
         this.id_comment = id;
         this.id_comic = id_commic;
-        this.username =  username;
+        this.username = username;
         this.comment = comment;
     }
 }
 
-class interaction{
-    create_commic(obj){
-
-
-    }
-    create_comment(obj){
-
-    }
-    delete_comment(obj){
-
-    }
-}
-
 /*------------------------------------------------------------------*/
-
