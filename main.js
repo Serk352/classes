@@ -9,7 +9,17 @@ tener una método llamda area que como su nombre lo dice calcule el área de la 
 */
 
 /*-----------------------------Solución------------------------------*/
+class figure{
+    constructor(h,w){
+        this.height = h;
+        this.width = w;
+    }
 
+    area(){
+        return this.height * this.width;
+    }
+}
+//console.log(new figure(10,5).area());
 
 
 /*------------------------------------------------------------------*/
@@ -29,9 +39,23 @@ y porder calcular el area de estos usando métodos.
 
 /*-----------------------------Solución------------------------------*/
 //rectangulo
+class rectangle extends figure{
+
+    perimeter(){
+        return 2(this.height+this.width);
+    }
+}
+var rectang1 = new rectangle(15,9);
+console.log(rectang1.area(), rectang1.perimeter());
 
 //triangulo
+class triangle extends figure{
 
+    area2(){
+        return this.area()/2;
+    }
+}
+console.log(new triangle(4,4).area2());
 
 /*------------------------------------------------------------------*/
 
@@ -53,7 +77,16 @@ en un escenario del mundo real.
 
 /*-----------------------------Solución------------------------------*/
 
+class trigonometria{
 
+    static hypotenuse(obj){
+        return Math.hypot(obj.w,obj.h)
+    }
+
+    static relation = "This is the hypotenuse";
+}
+var t = new triangle(9,9);
+console.log(trigonometria.hypotenuse(t));
 
 /*------------------------------------------------------------------*/
 
@@ -73,9 +106,18 @@ clase hija, en otras palabras deben de ser funcionando como hasta ahora.
 */
 
 /*-----------------------------Solución------------------------------*/
-
-
-
+let str = "había una vez un barco chiquito";
+class enhancedString extends String {
+  puntuacion(str) {
+    return str + ".";
+  }
+  capitalizar(str) {
+    let m = str[0].toUpperCase();
+    return str.replace(str[0], m);
+  }
+}
+var cadena = new enhancedString();
+console.log(cadena.puntuacion(str), cadena.capitalizar(str));
 /*------------------------------------------------------------------*/
 
 /*-----------------------------Extra(Más no opcional)---------------*/
@@ -97,6 +139,54 @@ Una vez definidos todo esto, favor de generar el código de las funciones.
 
 /*-----------------------------Solución------------------------------*/
 
+class station{
+    constructor(id, gen){
+        this.id =id;
+        this.genre=gen;
+    }
+  
+    show(){
+      let arrayTot = [this.id, this.genre];
+      return arrayTot;
+    }
+  
+    add(i,g){
+      let arrayTot = [this.id,this.genre];
+      arrayTot.push(i,g);
+      return arrayTot;
+    }
+    nowListening(){
+      return this.genre;
+    }
+  }
+  console.log(new station(1,"pop").add(2,"rock"));
+  
+  class user{
+    constructor(n, p){
+        this.name = n;
+        this.password = p;
+    }
+    logIn(){
+        return "Inicio de sesion exitoso BIENVENIDO: "+this.name;
+    }
+    logOut(){
+      return this.name + " esperamos verte pronto!"
+    }
+    sesion(){
+      return this.name;
+    }
+    
+  }
+  let user1 = new user("Mariana", "123m")
+  console.log(user1.logOut());
+  
+  class favoriteStations extends user{
+    static favoriteSt(id){
+      let ID = id.toUpperCase();
+      return this.name + ": has agregado "+ ID + " como estación favorita";
+    }
+  }
+  console.log(favoriteStations.favoriteSt("pop"));
 
 
 /*------------------------------------------------------------------*/
