@@ -180,7 +180,7 @@ class station{
   let user1 = new user("Mariana", "123m")
   console.log(user1.logOut());
   
-  class favoriteStations extends user{
+  class favoriteStations {
     static favoriteSt(id){
       let ID = id.toUpperCase();
       return this.name + ": has agregado "+ ID + " como estación favorita";
