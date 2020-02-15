@@ -9,8 +9,17 @@ tener una método llamda area que como su nombre lo dice calcule el área de la 
 */
 
 /*-----------------------------Solución------------------------------*/
+class Figure {
 
-
+    constructor(height, width) {
+      this.height = height;
+      this.width = width;
+    }
+  
+    area() {
+      return this.height * this.width;
+    }
+  }
 
 /*------------------------------------------------------------------*/
 
@@ -29,10 +38,25 @@ y porder calcular el area de estos usando métodos.
 
 /*-----------------------------Solución------------------------------*/
 //rectangulo
-
+class Rectangle extends Figure {
+    perimeter(){
+        return 2 * (this.width + this.height);
+    }
+}
 //triangulo
+class Triangle extends Figure {
+
+    area() {
+      return  this.height * this.width  / 2;
+    }
+  }
 
 
+var pruebaR = new Rectangle(9, 15);
+var pruebaT = new Triangle(9, 8);
+
+console.log(pruebaR.perimeter());
+console.log(pruebaT.area());
 /*------------------------------------------------------------------*/
 
 /*-----------------------------Static--------------------------------*/
@@ -52,11 +76,24 @@ en un escenario del mundo real.
 */
 
 /*-----------------------------Solución------------------------------*/
+class Trigonometria {
+    static hypotenuse(object){
+        return Math.hypot(object.width, object.height);
+    }
+    static res = "Esta es la hipotenusa. ";
+}
 
-
+console.log(Trigonometria.hypotenuse(pruebaT));
 
 /*------------------------------------------------------------------*/
-
+/*OTRO EQUIPO
+class trigonometria {
+    static teorema(figure) {
+     return Math.sqrt(Math.pow(figure.width, 2) + 
+     Math.pow(figure.height, 2));
+    }
+  }
+  console.log(trigonometria.teorema(tri));  */
 
 /*-----------------------------Extend--------------------------------*/
 /*
@@ -73,8 +110,43 @@ clase hija, en otras palabras deben de ser funcionando como hasta ahora.
 */
 
 /*-----------------------------Solución------------------------------*/
+let str = "había una vez un barco chiquito";
+class EnhancedString extends String {
 
+    punctuation(str) {
+    return str + ".";
+  }
 
+    toCapitalize(str) {
+    let m = str[0].toUpperCase();
+    return str.replace(str[0], m);
+  }
+}
+
+var charChain = new EnhancedString();
+console.log(charChain.punctuation(str), charChain.toCapitalize(str));
+
+/*OTRO EQUIPO
+class enhancedNumber extends Number{
+    isNotPair(x){
+        if(x % 2 === 0){
+            return false;
+        }
+        return true;
+    }
+    factorial(x){
+        if(x < 0){
+            return -1
+        }else if (x === 0){
+            return 1;
+        }else{
+            return(x * this.factorial(x-1));
+        }
+    }
+  }
+  var n = new enhancedNumber;
+  console.log(n.isNotPair(6));
+  console.log(n.factorial(5));  */
 
 /*------------------------------------------------------------------*/
 
@@ -96,7 +168,60 @@ hacer una de las siguientes opciones:
 Una vez definidos todo esto, favor de generar el código de las funciones.
 
 /*-----------------------------Solución------------------------------*/
+class User {
+    constructor(idUser, email, password, nickName, portfolio, sUser, status){
+        this.idUser = idUser;
+        this.email = email;
+        this.password = password;
+        this.nickName = nickName;
+        this.portfolio = portfolio;
+        this.sUser = sUser;
+        this.status = status;
+    }
 
+    login(){
+        if (this.status == false){
+            this.status = true;
+        }
+        return ("Cool ", this.nickName, ", your in!");      //No me imprime el nickName :(
+    }
 
+    logout(){
+        if (this.status == true){
+            this.status = false;
+        }
+        return ("See you soon ", this.nickName, "!")        //No me imprime el nickName :(
+    }
+}
 
+var userIsis = new User(0, "isis@gmail.com", "isispassboot", "Pi", 5, true, false);
+console.log(userIsis.login());
+//console.log(userIsis);
+//console.log(userIsis.logout());
+//console.log(userIsis);
 /*------------------------------------------------------------------*/
+
+class Tutorial{
+    constructor (idTutorial, idUser, category, title, description, imageurl, date){
+        this.idTutorial = idTutorial;
+        this.idUser = idUser;
+        this.category = category;
+        this.title = title;
+        this.description = description;
+        this.imageurl = imageurl;
+        this.date = date;
+    }
+
+    permission(){
+        //Quiero checar si Usuario en sUser tiene un "true" si no, no tendrá habilitada esta funcion
+        //Me gustaría hacer un método que busque los datos del usuario y se traiga el user Id para que el tutorial quede registrado con el
+    }
+
+    edit(){
+
+    }
+
+    delete(){
+
+    }
+}
