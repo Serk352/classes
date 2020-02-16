@@ -10,7 +10,19 @@ tener una método llamda area que como su nombre lo dice calcule el área de la 
 
 /*-----------------------------Solución------------------------------*/
 
-
+class figure {  
+    constructor (altura, base) {
+      this.altura = altura,
+      this.base = base
+    }
+  
+    area () {
+      return this.base * this.altura;
+    }
+  
+  }
+  
+  console.log(new figure(9,4).area())
 
 /*------------------------------------------------------------------*/
 
@@ -30,8 +42,23 @@ y porder calcular el area de estos usando métodos.
 /*-----------------------------Solución------------------------------*/
 //rectangulo
 
-//triangulo
+class rectangle extends figure {
+    perimetro() {
+      return 2 * this.base + 2 * this.altura;
+    }
+  }
+  
+  var figRect = new rectangle(12, 8);
+  console.log(figRect.area(), figRect.perimetro());
 
+//triangulo
+class triangle extends figure {
+    triangleArea() {
+      return this.area()/2;
+    }
+  }
+  
+  console.log(new triangle(7,4).triangleArea());
 
 /*------------------------------------------------------------------*/
 
@@ -52,7 +79,17 @@ en un escenario del mundo real.
 */
 
 /*-----------------------------Solución------------------------------*/
+class trigonometria {
 
+  static hipotenusa(obj) {
+    return Math.hypot(obj.base, obj.altura);
+  }
+
+  static getHipotenusa = "Esta es la hipotenusa";
+}
+
+let figT = new triangle(10,8);
+console.log(trigonometria.hipotenusa(figT));
 
 
 /*------------------------------------------------------------------*/
@@ -74,6 +111,23 @@ clase hija, en otras palabras deben de ser funcionando como hasta ahora.
 
 /*-----------------------------Solución------------------------------*/
 
+let str = "inserta una frase";
+
+class enhancedString extends String{
+
+    agregarPunto(str) {
+      return str + ".";
+    }
+
+    mayuscula(str) {
+        let m = str[0].toUpperCase();
+        return str.replace(str[0], m )
+    }
+  }
+  
+  var enhanced = new enhancedString();
+  console.log(enhanced.agregarPunto(str));
+  console.log(enhanced.mayuscula(str));
 
 
 /*------------------------------------------------------------------*/
@@ -96,7 +150,56 @@ hacer una de las siguientes opciones:
 Una vez definidos todo esto, favor de generar el código de las funciones.
 
 /*-----------------------------Solución------------------------------*/
+//Entidades: announcement y pet.
+// Propiedaes diferentes:
+//     announcement = username, email
+//     pet = name, breed
+// Métodos diferentes:
+//     addDataAnnou = agregar datos al anuncio.
+//     getName = mostrar los nombres de perros que coincidan con la raza ingresada
+// Propiedades en común: id
 
+//PRIMERA ENTIDAD:
+class announcement {
+  constructor (username, email) {
+    this.username = username,
+    this.email = email
+  }
+
+  addDataAnnou() {
+    if(this.username !== null && this.email !== null ){
+        var description = "Mi nombre es " + this.username + " con email " + this.email;
+        return description;
+      }
+    else {
+     return "Favor de llenar todos los campos"
+    } 
+  }
+}
+
+var announ = new announcement("Nallely", "nalle@gmail.com")
+console.log(announ.addDataAnnou());
+
+//SEGUNDA ENTIDAD:
+class pet {
+  constructor(name, breed){
+    this.name = name,
+    this.breed = breed
+  }
+
+getName(dog){
+ return this.name;
+}
+}
+
+let dog = new pet("Fido","chihuahua");
+console.log(dog.getName());
 
 
 /*------------------------------------------------------------------*/
+
+
+
+
+
+
