@@ -172,7 +172,6 @@ var objU = new User(1,"Andrea","andrea@email.com","pass123");
 console.log(objU);
 objU.reservar(x);
 console.log(objU);
-
 //
 
 /*------------------------------------------------------------------*/
