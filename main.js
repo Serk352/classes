@@ -9,6 +9,15 @@ tener una método llamda area que como su nombre lo dice calcule el área de la 
 */
 
 /*-----------------------------Solución------------------------------*/
+class figure {
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+    area(){
+        return this.width * this.height;
+    }
+}
 
 
 
@@ -29,8 +38,24 @@ y porder calcular el area de estos usando métodos.
 
 /*-----------------------------Solución------------------------------*/
 //rectangulo
+class rectangle extends figure {
+    perimetro(){
+        return (this.width*2) + (this.height*2);
+    }
+  }
+  
+  var rect = new rectangle(5,10);
+  console.log(rect.area(), rect.perimetro());
+
 
 //triangulo
+class trangle extends figure {
+    area(){
+        return (this.width * this.height)/2;
+    }
+}
+var tri = new triangle(5,10);
+console.log(tri.area());
 
 
 /*------------------------------------------------------------------*/
@@ -52,8 +77,14 @@ en un escenario del mundo real.
 */
 
 /*-----------------------------Solución------------------------------*/
+class trigonometria {
+    static teorema(figure) {
+     return Math.sqrt(Math.pow(figure.width, 2) + 
+     Math.pow(figure.height, 2));
+    }
+  }
 
-
+  console.log(trigonometria.teorema(tri));
 
 /*------------------------------------------------------------------*/
 
@@ -73,8 +104,28 @@ clase hija, en otras palabras deben de ser funcionando como hasta ahora.
 */
 
 /*-----------------------------Solución------------------------------*/
-
-
+class enhancedNumber extends Number{
+    isNotPair(x){
+        if(x % 2 === 0){
+            return false;
+        }
+        return true;
+    }
+    factorial(x){
+        if(x < 0){
+            return -1
+        }else if (x === 0){
+            return 1;
+        }else{
+            return(x * this.factorial(x-1));
+        }
+    }
+  }
+  
+  var n = new enhancedNumber;
+  
+  console.log(n.isNotPair(6));
+  console.log(n.factorial(5));
 
 /*------------------------------------------------------------------*/
 
@@ -95,8 +146,76 @@ hacer una de las siguientes opciones:
 
 Una vez definidos todo esto, favor de generar el código de las funciones.
 
+creo mis entidades doctor y usuario, cada una tiene entre sus porpiedades un 
+arreglo con objetos que contienen sus citas, como metodo cada entidad puede 
+realizar una busqueda de sus citas, creo entonces la entidad appointment
+donde le paso un arreglo de objetos con los datos de doctor , usuario y cita
+creo dos metodos estaticos que interactuan con las entidades doctor y usuario.
+dichas entidades, mandan llamar el metodo de appointments para realizar sus busquedas.
+
+
+
 /*-----------------------------Solución------------------------------*/
+class usuario {
+    constructor(name, lastname){
+        this.name = name;
+        this.lastname = lastname;
+    }
+    username = "username";
+    password = "password123";
+    idUsuario = 1;
+    appointments =  [{"date": "doctor"}];
 
+    findAppointments(){
+        return appointment.findAppbyUserId(this.idUsuario);
+    }
 
+}
 
+class doctor {
+    constructor(name, lastname){
+        this.name = name;
+        this.lastname = lastname;
+    }
+    idDoctor = 1;
+    speciality = "general";
+    appointments = [{"date": "usuario"}];
+
+    findDoctorAppointments(){
+      return appointment.findAppbyDocId(this.idDoctor);
+    }
+
+}
+
+class appointment {
+    static appointments = [
+        {
+            idUsuario: 1,
+            idDoctor: 1,
+            date: "date"
+        },
+        {
+            idUsuario: 2,
+            idDoctor: 1,
+            date: "date"
+        },
+        {
+            idUsuario: 1,
+            idDoctor: 2,
+            date: "date"
+        },
+    ];
+
+    static findAppbyUserId = function(id){
+        return this.appointments.filter(x => x.idUsuario === id);
+    }
+    static findAppbyDocId = function(id){
+        return this.appointments.filter(x => x.idDoctor === id);
+    }
+}
+
+var doc1 = new doctor("juan", "perez");
+doc1.findDoctorAppointments();
+var user1 = new usuario ("laura", "lujan");
+user1.findAppointments();
 /*------------------------------------------------------------------*/
