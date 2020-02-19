@@ -15,7 +15,7 @@ class figure {
         this.height = height;
     }
     area(){
-        return this.width * this.height
+        return this.width * this.height;
     }
 }
 
@@ -40,7 +40,7 @@ y porder calcular el area de estos usando métodos.
 //rectangulo
 class rectangle extends figure {
     perimetro(){
-        return (this.width*2) + (this.height*2)
+        return (this.width*2) + (this.height*2);
     }
   }
   
@@ -51,10 +51,10 @@ class rectangle extends figure {
 //triangulo
 class trangle extends figure {
     area(){
-        return (this.width * this.height)/2
+        return (this.width * this.height)/2;
     }
 }
-var tri = new triangle(5,10)
+var tri = new triangle(5,10);
 console.log(tri.area());
 
 
@@ -146,6 +146,13 @@ hacer una de las siguientes opciones:
 
 Una vez definidos todo esto, favor de generar el código de las funciones.
 
+creo mis entidades doctor y usuario, cada una tiene entre sus porpiedades un 
+arreglo con objetos que contienen sus citas, como metodo cada entidad puede 
+realizar una busqueda de sus citas, creo entonces la entidad appointment
+donde le paso un arreglo de objetos con los datos de doctor , usuario y cita
+creo dos metodos estaticos que interactuan con las entidades doctor y usuario.
+dichas entidades, mandan llamar el metodo de appointments para realizar sus busquedas.
+
 
 
 /*-----------------------------Solución------------------------------*/
@@ -160,7 +167,7 @@ class usuario {
     appointments =  [{"date": "doctor"}];
 
     findAppointments(){
-        return appointment.findAppbyUserId(this.idUsuario)
+        return appointment.findAppbyUserId(this.idUsuario);
     }
 
 }
@@ -175,7 +182,7 @@ class doctor {
     appointments = [{"date": "usuario"}];
 
     findDoctorAppointments(){
-      return appointment.findAppbyDocId(this.idDoctor)
+      return appointment.findAppbyDocId(this.idDoctor);
     }
 
 }
@@ -200,14 +207,15 @@ class appointment {
     ];
 
     static findAppbyUserId = function(id){
-        return this.appointments.filter(x => x.idUsuario === id)
+        return this.appointments.filter(x => x.idUsuario === id);
     }
     static findAppbyDocId = function(id){
-        return this.appointments.filter(x => x.idDoctor === id)
+        return this.appointments.filter(x => x.idDoctor === id);
     }
 }
 
 var doc1 = new doctor("juan", "perez");
 doc1.findDoctorAppointments();
 var user1 = new usuario ("laura", "lujan");
+user1.findAppointments();
 /*------------------------------------------------------------------*/
